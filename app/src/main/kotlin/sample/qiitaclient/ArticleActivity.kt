@@ -19,11 +19,17 @@ class ArticleActivity : AppCompatActivity() {
                         .putExtra(ARTICLE_EXTRA, article)
     }
 
+    private val articleView: ArticleView by lazy {
+        findViewById(R.id.article_view) as ArticleView
+    }
+
+    private val webView: WebView by lazy {
+        findViewById(R.id.web_view) as WebView
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_article)
-        val articleView = findViewById(R.id.article_view) as ArticleView
-        val webView = findViewById(R.id.web_view) as WebView
 
         val article: Article = intent.getParcelableExtra(ARTICLE_EXTRA)
         articleView.setArticle(article)
